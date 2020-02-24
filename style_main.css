@@ -1,0 +1,292 @@
+﻿.doc
+{
+margin: 1px;
+background-color: #f9fdf4;
+margin: 0;
+padding: 0;
+border: 5px solid white;
+min-width: 350px;
+
+
+}
+
+.doc img
+{   float: left;
+    width:35%;
+    border: 1px solid rgb(187, 184, 184);
+    margin: 5PX;
+}
+
+.doc_aside
+{
+    float: left;
+    width:60%;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.doc_info_head
+{
+margin: 15px auto auto 15px;
+font-size: 1.2em;
+font-weight: 700;
+letter-spacing: -1px;
+color: rgb(11, 103, 179);
+
+}
+
+.doc_info
+{
+    text-align: left;
+    line-height: 210%;
+    font-size: .7em;
+    color: rgb(11, 103, 179);
+    margin: 1.2em;
+
+    font-weight: 600;
+
+}
+
+.doc_info i
+{
+    margin-right: 3px;
+}
+
+.row
+{
+    width: 100%;
+}
+
+.container-fluid
+{
+margin: 0;
+padding: 0;
+}
+
+.row
+{
+margin: 0;
+padding: 0;
+}
+
+.slide
+{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.sticky
+{
+    width:100%;
+    position: fixed;
+    left: 0 ;
+    top: 0;
+    z-index: 100;
+}
+
+.slide_content
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%; 
+    z-index: 1;
+    /*display: flex; - jeśli chciałbym wyśrodkować w pionie*/ 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(7, 99, 161, 0.9);
+    padding: 20px;
+    color: white;
+    box-sizing: border-box;
+    letter-spacing: -1px;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    transform: translate(0, -100%);
+}
+
+.slide:hover .slide_content
+{
+    transform: translate(0,0);
+}
+
+.slide_options
+{
+    margin-top: 20px;
+    white-space: nowrap; 
+    overflow:hidden;
+    text-overflow: ellipsis;
+
+}
+
+.slide_options i
+{
+    font-size: 20px;
+    margin-right: 8px;
+
+    text-decoration: none;
+    color: white;
+    font-style: normal;
+
+}
+
+.option_1
+{
+    transition: all 0.2s ease-in-out;
+}
+.option_2
+{
+    transition: all 0.2s ease-in-out;
+}
+
+.anchor_1:hover .option_1
+{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    filter: brightness(100%)
+}
+
+.anchor_2:hover .option_2
+{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    filter: brightness(100%)
+}
+
+.navbar
+{
+    color:white;
+}
+
+.container{
+    min-height: 100%;
+    margin-bottom: -60px;
+}
+
+.container::after{
+    content: "";
+    display: block;
+    }
+
+footer, .container::after
+{
+height: 60px;
+line-height: 400%;
+text-align: center;
+}
+
+#scrollup{
+    height: 60px;
+    width: 60px;
+    opacity: 0.8;
+    text-decoration: none;
+    background: url("img/scrollup.png") no-repeat 0px 0px;
+    position: fixed;
+    right: 50px;
+bottom: 60px;
+display: none;
+}
+
+hr
+{margin-top: 3px}
+
+.section_header
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 0;
+    display: block;
+    color:  rgba(7, 99, 161, 1);
+    font-weight: 700;
+ }
+
+ iframe
+ {
+min-height: 235px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid rgb(187, 184, 184);
+ }
+
+figcaption
+{
+    color:  rgba(7, 99, 161, 1);
+    font-weight: 700;
+    font-size: 0.9em;
+}
+
+.archive
+{
+    background-color: rgb(196, 98, 98);
+    color: white;
+    text-align: center;
+letter-spacing: 2px;
+    padding:2px;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+.slider_addon
+{
+    margin-top: 8px;
+  
+}
+
+.slider_addon_item
+{
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+.slider_addon_item a
+{
+    color: white;
+}
+
+.contact
+{
+    margin-bottom: 50px;
+    margin-left: 10px;
+}
+
+#newItem, #newItem2, #newItem3 {
+    color: white;
+    display: block;
+    background: red;
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    padding-top: .35em;
+    transform: rotate(45deg);
+    top:60%;
+    left:-32%;
+    opacity: 0.85;
+    overflow: hidden;
+
+}
+
+#newItem h3, #newItem2 h3
+{
+        font-size: 1.4em;
+}
+/*
+#newDoc {
+    border: solid 3px red;
+    border-radius: 5px
+} */
