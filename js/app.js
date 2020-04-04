@@ -1,16 +1,19 @@
 const operContainer = document.getElementById('oper-container');
 const benContainer = document.getElementById('ben-container');
 
-const createDocs = (docsArr, type) => {
+const createDocs = (docsArr, type, isArchived) => {
   let container;
 
   type === 'oper' ? (container = operContainer) : (container = benContainer);
 
   container.innerHTML = docsArr
-    .filter(doc => doc.target == type)
+    .filter(doc => (doc.target == type && doc.archived == isArchived))
+    .sort((a, b) => a.order - b.order)
     .map(doc => {
       let premiereTag;
-      doc.premiereTag === 'true' ? (premiereTag = 'newDoc') : (premiereTag = 'wDoc');
+      doc.premiereTag === true
+        ? (premiereTag = 'newDoc')
+        : (premiereTag = 'wDoc');
       console.log(doc.premiereTag);
       return `
                 <div id = "${premiereTag}"class="doc col-sm-6 col-md-4 slide ${premiereTag}"  >
@@ -27,8 +30,6 @@ const createDocs = (docsArr, type) => {
                             class="anchor_1">
                             <i class="icon-down-circled2 option_1">Otwórz PDF</i>
                         </a>
-
-
                     </div>
                 </div>
                 <img alt="strona tytułowa" src="app_files/img/thumbnail.png">
@@ -68,21 +69,21 @@ fetch('https://docprovider.netlify.com/.netlify/functions/server', {
 })
   .then(res => res.json())
   .then(res => {
-    createDocs(res.data, 'oper');
-    createDocs(res.data, 'ben');
+    createDocs(res.data, 'oper', false);
+    createDocs(res.data, 'ben', false);
     console.log(res.data);
   });
 
-setTimeout(addItemCss, 500);
+setTimeout(addItemCss, 700);
 
 function addItemCss() {
   const newDoc = document.querySelectorAll('.newDoc');
   newDoc.forEach(item => {
-  const newDiv = document.createElement('div');
-  newDiv.innerHTML = '<h3>NOWOŚĆ</h3>';
-  newDiv.id='newItem';
-  console.log(newDoc);
-    item.appendChild(newDiv)
+    const newDiv = document.createElement('div');
+    newDiv.innerHTML = '<h3>NOWOŚĆ</h3>';
+    newDiv.id = 'newItem';
+    console.log(newDoc);
+    item.appendChild(newDiv);
   });
 
   // newDoc.appendChild(newDiv);
