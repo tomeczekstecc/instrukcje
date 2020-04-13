@@ -20,7 +20,7 @@ const createDocs = (docsArr, type, isArchived) => {
                 <div class="slide_content">
                     <div>${doc.title}</div>
                     <div class="slide_options">
-                        <a href="app_files/pdf/${'[' +
+                        <a href="http://bestcodes.pl/lsi/pdf_host/${'[' +
                           doc.ver +
                           ']' +
                           '_' +
@@ -61,14 +61,14 @@ const createDocs = (docsArr, type, isArchived) => {
     .join(' ');
 };
 
-fetch('https://docprovider.netlify.com/.netlify/functions/server', {
+fetch('https://dokmenagier.herokuapp.com/api/pdfs', {
   method: 'GET',
   headers: {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 })
-  .then(res => res.json())
-  .then(res => {
+  .then((res) => res.json())
+  .then((res) => {
     createDocs(res.data, 'oper', false);
     createDocs(res.data, 'ben', false);
     console.log(res.data);
