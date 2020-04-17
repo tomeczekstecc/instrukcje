@@ -17,7 +17,7 @@ const createDocs = (docsArr, target, type, isArchived) => {
       doc.premiereTag === true
         ? (premiereTag = 'newDoc')
         : (premiereTag = 'wDoc');
-      console.log(doc.premiereTag);
+
       return `
                 <div id = "${premiereTag}" class="col-sm-6 film ${premiereTag}">
                 <figcaption>${doc.title}
@@ -30,19 +30,15 @@ const createDocs = (docsArr, target, type, isArchived) => {
     .join(' ');
 };
 
-// fetch('https://docprovider.netlify.com/.netlify/functions/server', {
-fetch('https://dokmenagier.herokuapp.com/api/films', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-  .then((res) => res.json())
-  .then((res) => {
-    createDocs(res.data, 'oper', 'film', false);
-    createDocs(res.data, 'ben', 'film', false);
-    console.log(res.data);
-  });
+const fetchData = async () => {
+  const docsData = await fetch('https://dokmenagier.herokuapp.com/api/films');
+  const data = await docsData.json();
+  createDocs(data.data, 'oper', 'film', false);
+  createDocs(data.data, 'ben', 'film', false);
+
+};
+
+fetchData();
 
 setTimeout(addItemCss, 1000);
 
@@ -63,8 +59,7 @@ function addItemCss() {
 
     newDiv.style.marginLeft = '15px';
     newDiv.id = 'newItem';
-    console.log(newDoc);
-    item.appendChild(newDiv);
+     item.appendChild(newDiv);
   });
 
   // newDoc.appendChild(newDiv);

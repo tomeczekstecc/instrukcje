@@ -1,32 +1,36 @@
 const operContainer = document.getElementById('oper-container');
 const benContainer = document.getElementById('ben-container');
 
-const createDocs = (docsArr, type, isArchived) => {
+const createDocs = (docsArr, target, type, isArchived) => {
   let container;
 
-  type === 'oper' ? (container = operContainer) : (container = benContainer);
+  target === 'oper' ? (container = operContainer) : (container = benContainer);
 
   container.innerHTML = docsArr
-    .filter(doc => (doc.target == type && doc.archived == isArchived))
+    .filter(
+      (doc) =>
+        doc.target == target && doc.archived == isArchived && doc.type == type
+    )
     .sort((a, b) => a.order - b.order)
-    .map(doc => {
+    .map((doc) => {
       let premiereTag;
       doc.premiereTag === true
         ? (premiereTag = 'newDoc')
         : (premiereTag = 'wDoc');
-      console.log(doc.premiereTag);
       return `
                 <div id = "${premiereTag}"class="doc col-sm-6 col-md-4 slide ${premiereTag}"  >
                 <div class="slide_content">
                     <div>${doc.title}</div>
                     <div class="slide_options">
-                        <a href="http://bestcodes.pl/lsi/pdf_host/${'[' +
+                        <a href="http://bestcodes.pl/lsi/pdf_host/${
+                          '[' +
                           doc.ver +
                           ']' +
                           '_' +
                           doc.shortTitle +
                           '_' +
-                          doc.target}.pdf" target="_blank"
+                          doc.target
+                        }.pdf" target="_blank"
                             class="anchor_1">
                             <i class="icon-down-circled2 option_1">Otwórz PDF</i>
                         </a>
@@ -61,20 +65,19 @@ const createDocs = (docsArr, type, isArchived) => {
     .join(' ');
 };
 
-fetch('https://dokmenagier.herokuapp.com/api/pdfs', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-  .then((res) => res.json())
-  .then((res) => {
-    createDocs(res.data, 'oper', false);
-    createDocs(res.data, 'ben', false);
-    console.log(res.data);
-  });
+const fetchData = async () => {
+  const docsData = await fetch('https://dokmenagier.herokuapp.com/api/pdfs');
+  const data = await docsData.json();
 
-setTimeout(addItemCss, 700);
+  createDocs(data.data, 'oper', 'pdf', false);
+  createDocs(data.data, 'ben', 'pdf', false);
+
+
+};
+
+fetchData();
+
+setTimeout(addItemCss, 1000);
 
 function addItemCss() {
   const newDoc = document.querySelectorAll('.newDoc');
@@ -82,9 +85,7 @@ function addItemCss() {
     const newDiv = document.createElement('div');
     newDiv.innerHTML = '<h3>NOWOŚĆ</h3>';
     newDiv.id = 'newItem';
-    console.log(newDoc);
     item.appendChild(newDiv);
   });
 
-  // newDoc.appendChild(newDiv);
 }

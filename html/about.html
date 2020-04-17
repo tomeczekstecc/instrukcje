@@ -11,19 +11,19 @@
     <meta name="keywords" content="instrukcja, rpo wsl, fundusze europejskie, efs, slaskie.pl">
     <meta name="author" content="LSI FS">
     <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="style_main.css">
-    <link rel="stylesheet" href="fontello/css/fontello.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style_main.css">
+    <link rel="stylesheet" href="../fontello/css/fontello.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="jquery.scrollTo.min.js"></script>
-    <link rel="Shortcut icon" href="img/rwd_lsi.png">
+
+    <link rel="icon" href="../app_files/img/rwd.jpg">
 
 </head>
 
 <body>
     <header id="menu">
         <nav class="navbar navbar-dark bg-primary navbar-expand-md">
-            <a href="index.html" class="navbar-brand d-inline-block">LSI instrukcje</a>
+            <a href="../index.html" class="navbar-brand d-inline-block">LSI instrukcje</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false"
                 aria-label="Przełącznik nawigacji">
                 <span class="navbar-toggler-icon"></span>
@@ -39,12 +39,12 @@
                     <!-- ############# INSTRUKCJE PDF ################ -->
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" href="index.html">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" href="../index.html">
                             Instrukcje pdf</a>
                         <div class="dropdown-menu" aria-labelledby="submenu" aria-haspopup="true">
-                            <a class="dropdown-item" href="index.html">Dla Operatora/Oceniającego</a>
+                            <a class="dropdown-item" href="../index.html">Dla Operatora/Oceniającego</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.html#sekcja_beneficjenci">Dla Wnioskodawców/Beneficjentów</a>
+                            <a class="dropdown-item" href="../index.html#sekcja_beneficjenci">Dla Wnioskodawców/Beneficjentów</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" target="_blank" href="https://rpo.slaskie.pl/repo/?unit=4&category=9">Instrukcje w serwisie rpo.slaskie.pl</a>
                             <div class="dropdown-divider"></div>
@@ -85,7 +85,6 @@
     </header>
 
 
-    <a href="#" id="scrollup"></a>
     <div class="container">
 
 
@@ -149,37 +148,13 @@
             FS.LSI SI 2018-2019&copy;
         </div>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-
-    <script src="jquery-1.11.3.min.js"></script>
-
-    <script>
-
-        $(document).ready(function () {
-            var NavY = $('#menu').offset().top;
-
-            var stickyNav = function () {
-                var ScrollY = $(window).scrollTop();
-
-                if (ScrollY > NavY) {
-                    $('#menu').addClass('sticky');
-                } else {
-                    $('#menu').removeClass('sticky');
-                }
-            };
-
-            stickyNav();
-
-            $(window).scroll(function () {
-                stickyNav();
-            });
-        });
-    </script>
+<script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
 
 </body>
 
