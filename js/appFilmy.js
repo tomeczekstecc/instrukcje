@@ -35,21 +35,17 @@ const fetchData = async () => {
   const data = await docsData.json();
   createDocs(data.data, 'oper', 'film', false);
   createDocs(data.data, 'ben', 'film', false);
-
+  addItemCss();
 };
 
 fetchData();
-
-setTimeout(addItemCss, 1000);
 
 function addItemCss() {
   const newDoc = document.querySelectorAll('.newDoc');
   newDoc.forEach((item) => {
     const newDiv = document.createElement('div');
     newDiv.innerHTML = '<h3>NOWOŚĆ</h3>';
-
     newDiv.style.transform = 'rotate(0deg)';
-
     newDiv.style.top = '22px';
     newDiv.style.left = '0%';
     newDiv.style.maxWidth = '22%';
@@ -59,8 +55,6 @@ function addItemCss() {
 
     newDiv.style.marginLeft = '15px';
     newDiv.id = 'newItem';
-     item.appendChild(newDiv);
+    item.appendChild(newDiv);
   });
-
-  // newDoc.appendChild(newDiv);
 }

@@ -71,21 +71,17 @@ const fetchData = async () => {
 
   createDocs(data.data, 'oper', 'pdf', false);
   createDocs(data.data, 'ben', 'pdf', false);
-
-
+  addItemCss();
 };
 
 fetchData();
 
-setTimeout(addItemCss, 1000);
-
 function addItemCss() {
   const newDoc = document.querySelectorAll('.newDoc');
-  newDoc.forEach(item => {
+  newDoc.forEach((item) => {
     const newDiv = document.createElement('div');
     newDiv.innerHTML = '<h3>NOWOŚĆ</h3>';
     newDiv.id = 'newItem';
     item.appendChild(newDiv);
   });
-
 }
